@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticketflow
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: ticketflow
+  template:
+    metadata:
+      labels:
+        app: ticketflow
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/cl-wregelmann/ticketing-app:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: JWT_SECRET
+              value: "secret"
+            - name: DB_PATH
+              value: /data/tickets.db
+          securityContext:
+            privileged: true
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ticketflow
+spec:
+  type: LoadBalancer
+  selector:
+    app: ticketflow
+  ports:
+    - port: 80
+      targetPort: 3000

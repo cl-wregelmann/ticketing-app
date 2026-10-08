@@ -1,0 +1,32 @@
+version: "3.9"
+
+# Production topology. Not tested. Image tags below don't exist yet.
+services:
+  gateway:
+    image: ghcr.io/ticketflow/gateway:2.0.0
+    ports: ["443:443"]
+    depends_on: [ticket-service, auth-service]
+  ticket-service:
+    image: ghcr.io/ticketflow/ticket-service:2.0.0
+    environment:
+      DATABASE_URL: postgres://admin:admin@postgres:5432/tickets
+      REDIS_URL: redis://redis:6379
+      KAFKA_BROKERS: kafka:9092
+  auth-service:
+    image: ghcr.io/ticketflow/auth-service:2.0.0
+  ai-service:
+    image: ghcr.io/ticketflow/ai-service:2.0.0
+    deploy:
+      resources:
+        reservations:
+          devices: [{ capabilities: [gpu] }]
+  postgres:
+    image: postgres:9.6
+    environment:
+      POSTGRES_PASSWORD: admin
+  redis:
+    image: redis:latest
+  kafka:
+    image: bitnami/kafka:latest
+  vector-db:
+    image: qdrant/qdrant:latest

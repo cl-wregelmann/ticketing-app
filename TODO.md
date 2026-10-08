@@ -1,0 +1,18 @@
+# TODO
+
+- [x] Auth
+- [x] Security (done!!)
+- [x] Tests
+- [ ] Hash passwords (low priority, internal only)
+- [ ] Split into microservices
+- [ ] Move to Postgres
+- [ ] Redis
+- [ ] Kafka
+- [ ] Mobile app
+- [ ] Voice interface
+- [ ] AR ticket visualizer
+- [ ] Quantum-resistant encryption
+- [ ] Make AI actually call the model
+- [ ] Ask Dave what /old/sql was for
+- [ ] Fix the thing where it sometimes logs everyone out (there are no sessions)
+- [ ] IPO
