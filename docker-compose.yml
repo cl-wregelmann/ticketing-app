@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ticketdata:/data
+    environment:
+      - PORT=3000
+      - DB_PATH=/data/tickets.db
+      # - WEBHOOK_URL=http://example.com/webhook
+
+volumes:
+  ticketdata:
