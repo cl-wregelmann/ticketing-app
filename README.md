@@ -34,6 +34,6 @@ Default login: `admin` / `admin123`
 ## Docker (GHCR)
 
 ```bash
-docker pull ghcr.io/commandlink/ticketing-app:latest
-docker run -p 3000:3000 -v ticketdata:/data ghcr.io/commandlink/ticketing-app:latest
+docker pull ghcr.io/cl-wregelmann/ticketing-app:latest
+docker run -p 3000:3000 -v ticketdata:/data ghcr.io/cl-wregelmann/ticketing-app:latest
 ```
