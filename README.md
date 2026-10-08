@@ -78,7 +78,15 @@ CQRS, event sourcing, and a hexagonal domain core. See [ARCHITECTURE.md](ARCHITE
 - Compliance-ready exports (SOC2, HIPAA, PCI-DSS, FedRAMP)
 
 ### 🏢 Enterprise
-- Multi-tenant isolation with per-tenant encryption keys
+- **Military-grade multi-tenancy**: strict tenant isolation enforced at the database, application, and network layers
+- Database-per-tenant architecture with row-level security as defense in depth
+- Per-tenant encryption keys managed by an HSM-backed KMS
+- Subdomain routing (`acme.ticketflow.pro`), so tenant context can never be spoofed
+- Usernames are scoped per tenant, so `admin` can exist in every organization
+- Data residency controls (US, EU, APAC), where your data never leaves your region
+- Custom branding with a sanitized, sandboxed theme engine
+- Usage-based billing with automatic plan enforcement via Stripe
+- Zero cross-tenant data access, guaranteed and independently audited
 - SAML 2.0 / OIDC / SCIM provisioning
 - Role-based **and** attribute-based access control (RBAC + ABAC + ReBAC)
 - 99.999% SLA, active-active across 5 regions

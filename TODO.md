@@ -4,6 +4,9 @@
 - [x] Security (done!!)
 - [x] Tests
 - [ ] Hash passwords (low priority, internal only)
+- [x] Multi-tenancy (done, ship it)
+- [ ] Actually scope queries by tenant
+- [ ] Per-tenant encryption keys
 - [ ] Split into microservices
 - [ ] Move to Postgres
 - [ ] Redis
